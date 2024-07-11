@@ -1,0 +1,36 @@
+<!-- <form #barcodeForm="ngForm" (ngSubmit)="generatebarcode(barcodeForm)">
+
+  <input type="text" value="book">
+  <button type="submit">Generate Barcode</button>
+</form> -->
+
+<button (click)="generateBarcodes()" >Generate Barcodes</button>
+
+  
+  
+   <div class="content">
+
+
+<div class="table-container" >
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let b of book">
+            <td>{{b.title}}</td>
+            <td>{{b.author}}</td>
+            <td>{{b.price}}</td>
+            <td>{{b.description}}</td>
+           
+            <td><button type="button" class="btn btn-danger">Delete</button></td>
+        </tbody>
+    </table>
+</div>
+</div>
+<img src="http://localhost:8080/api/barcode/images" alt="Barcode Image">

@@ -1,0 +1,88 @@
+body {
+  background-color: #eee;
+  font-family: Arial, sans-serif;
+}
+.h-custom {
+  min-height: 100vh;
+}
+.shopping-cart {
+  border-radius: 15px;
+}
+.card-body {
+  padding: 2rem;
+}
+.card-body h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.card-body img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.card-body .flex-grow-1 {
+  margin-left: 1rem;
+}
+.card-body .fas.fa-times {
+  color: #000;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.card-body .text-primary {
+  color: #007bff !important;
+}
+.card-body .text-black {
+  color: #000;
+}
+.card-body p {
+  margin-bottom: 0.5rem;
+  color: #9e9e9e;
+}
+.number-input {
+  display: flex;
+  align-items: center;
+}
+.number-input button {
+  border: none;
+  background: transparent;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+.number-input input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0 0.5rem;
+}
+.checkout-btn {
+  background-color: #2874f0;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.checkout-btn:hover {
+  background-color: #1a5fb4;
+}
+.total-section {
+  background-color: #e1f5fe;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.total-section h5 {
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .card-body {
+    padding: 1rem;
+  }
+  .card-body .flex-grow-1 {
+    margin-left: 0.5rem;
+  }
+}
+
+

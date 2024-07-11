@@ -1,0 +1,41 @@
+
+  
+  
+    <!-- <form >
+        <label for="recipientEmails">Recipient Emails:</label>
+        <input type="email" id="recipientEmails" name="recipientEmails" multiple required [(ngModel)]="email">
+        <small>Separate multiple emails with commas (,)</small><br><br>
+        <label for="recipientEmails">Subject</label>
+        <input type="text" id="Subject" name="recipientEmails"  required [(ngModel)]="subject">
+        <small>Separate multiple emails with commas (,)</small><br><br>
+        
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="5" cols="50" required [(ngModel)]="message"></textarea><br><br>
+
+        <button type="submit" (click)="sendEmail()">Send Email</button>
+    </form> -->
+    <div class="container-fluid">
+      
+      <div class="card">
+        
+          <span class="title">Mail Trigger</span>
+          <form class="form" id="fixed-form">
+              <div class="form-group">
+                  <input [(ngModel)]="email" type="email" class="form-control" required="" [ngModelOptions]="{standalone: true}">
+                  <label for="email">Email</label>
+              </div>
+              <div class="form-group">
+                  <input [(ngModel)]="subject" type="text" id="email" name="email" class="form-control" required="" [ngModelOptions]="{standalone: true}">
+                  <label for="text">Subject</label>
+              </div>
+              <div class="form-group">
+                  <textarea [(ngModel)]="message" id="comment" name="comment" rows="5" class="form-control" required="" [ngModelOptions]="{standalone: true}"></textarea>
+                  <label for="comment">Comment</label>
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="sendEmail()">Submit</button>
+          </form>
+      </div>
+  </div>
+  
+      
+      

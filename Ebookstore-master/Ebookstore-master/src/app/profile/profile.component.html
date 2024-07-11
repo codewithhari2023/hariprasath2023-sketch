@@ -1,0 +1,179 @@
+<section class="vh-100" style="background-color: #f4f5f7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-6 mb-4 mb-lg-0 d-flex">
+        <div  *ngIf="addadress.length&& DebitCard.length<=0">
+          <ng-lottie [options]="emptycarts" width="300px" height="300px" ></ng-lottie>
+         </div> 
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+              <h5 style="color: yellowgreen;">{{username}}</h5>
+            <p>PUBLIC</p>
+              <i class="far fa-edit mb-5"></i>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Profile</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3" >
+                    <h6>Address</h6>
+                    <div  *ngFor="let adresses of Addresses">
+                    <p class="text-muted">{{adresses.city}}</p>
+                    <p class="text-muted">{{adresses.street}}</p>
+                    <p class="text-muted" >{{adresses.zipcode}}</p>
+                    <button class="btn btn-danger"(click)="Deleteaddress(adresses.id)" style="background-color: rgb(255, 3, 3)
+                    ;">Delete</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addressModal" style="background-color: rgb(46, 56, 64);margin-top: 100px;">
+                      Address
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="addressModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="addressModalLabel">Register Your Address</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- Form inside modal -->
+                            <form class="form" #addresform="ngForm" (ngSubmit)="addadress()">
+                              <div class="form-group">
+                                <label for="cityInput">City</label>
+                                <input id="cityInput" required type="text" class="form-control" [(ngModel)]="city" name="city"
+                                  #citymodel="ngModel" minlength="4" />
+                                <div *ngIf="citymodel.invalid && (citymodel.dirty || citymodel.touched)" class="invalid-feedback">
+                                  City must be at least 4 characters
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="streetInput">Street</label>
+                                <input id="streetInput" required type="text" class="form-control" [(ngModel)]="street" name="street"
+                                  #streetmodel="ngModel" minlength="6" />
+                                <div *ngIf="streetmodel.invalid && (streetmodel.dirty || streetmodel.touched)" class="invalid-feedback">
+                                  Street must be at least 6 characters
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="zipcodeInput">Zipcode</label>
+                                <input id="zipcodeInput" required type="text" class="form-control" [(ngModel)]="zipcode" name="zipcode"
+                                  #zipcodemodel="ngModel" minlength="6" maxlength="6" />
+                                <div *ngIf="zipcodemodel.invalid && (zipcodemodel.dirty || zipcodemodel.touched)" class="invalid-feedback">
+                                  Zipcode must be 6 characters
+                                </div>
+                              </div>
+                    
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                             
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="col-6 mb-3">
+                    
+                    <h6>Balance</h6>
+                    <div *ngFor="let debitcard of DebitCard">
+                    <p class="text-muted"  >{{debitcard.balance}}</p>
+                    </div>
+                    <!-- Button to trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal" style="background-color: rgb(46, 56, 64);">
+                      ADDCARD
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true" (hidden)="onModalHidden()">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="paymentModalLabel">Payment</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- Form inside modal -->
+                            <form #paymentForm="ngForm" (ngSubmit)="makecard()">
+                              <div class="mb-3">
+                                <label for="modalCardNumber" class="form-label">Card Number</label>
+                                <input
+                                  type="text"
+                                  id="modalCardNumber"
+                                  class="form-control"
+                                  placeholder="Enter your card number"
+                                  [(ngModel)]="cardNumber"
+                                  name="cardNumber"
+                                  required
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label for="modalCvv" class="form-label">CVV</label>
+                                <input
+                                  type="text"
+                                  id="modalCvv"
+                                  class="form-control"
+                                  placeholder="Enter CVV"
+                                  [(ngModel)]="cvv"
+                                  name="cvv"
+                                  required
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label for="modalExpiry" class="form-label">Expiration Date</label>
+                                <input
+                                  type="text"
+                                  id="modalExpiry"
+                                  class="form-control"
+                                  placeholder="MM/YY"
+                                  [(ngModel)]="expdate"
+                                  name="expiry"
+                                  required
+                                />
+                              </div>
+                              <div class="mb-3">
+                                <label for="modalBalance" class="form-label">Balance</label>
+                                <input
+                                  type="text"
+                                  id="modalBalance"
+                                  class="form-control"
+                                  placeholder="Enter balance"
+                                  [(ngModel)]="balance"
+                                  name="balance"
+                                  required
+                                />
+                              </div>
+                              <button type="submit" class="btn btn-primary w-100">Process Payment</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+<div class="container mt-5" >
+  <div class="row">
+    <!-- Left side for the form -->
+ <!-- Button to trigger modal -->
+
+
+
+    <!-- Right side for the table -->
+    

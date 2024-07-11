@@ -1,0 +1,162 @@
+<!-- <div class="container-fluid">
+  <div class="hero">
+    <form #registerform="ngForm" (ngSubmit)="register(registerform)">
+      <div class="logo">BookShopping</div>
+
+      <input
+        type="email"
+        name="email"
+        id="email"
+        required=""
+        class="input"
+        placeholder="Phone, email address or username"
+        [(ngModel)]="username"
+        #emailmodel="ngModel"
+        maxlength="10"
+        [ngClass]="
+          emailmodel.invalid &&
+          (emailmodel.dirty || emailmodel.untouched)
+            ? 'is-invalid '
+            : ''
+        "
+      />
+      <div
+        *ngIf="emailmodel.invalid"
+        class="invalid-feedback"
+      >
+        email must be 6 characters
+      </div>
+ 
+      <input
+        type="text"
+        name="name"
+        id="name"
+        required=""
+        class="input"
+        placeholder="name"
+        [(ngModel)]="name"
+        #namemodel="ngModel"
+        maxlength="16"
+        minlength="8"
+        [ngClass]="
+          namemodel.invalid &&
+          (namemodel.dirty || namemodel.untouched)
+            ? 'is-invalid '
+            : ''
+        "
+      />
+      <div
+        *ngIf="namemodel.invalid"
+        class="invalid-feedback"
+      >
+        name must be 6 characters
+      </div>
+   
+      <input
+        type="password"
+        name="password"
+        id="password"
+        required=""
+        class="input"
+        placeholder="Password"
+        [(ngModel)]="password"
+        #passwordmodel="ngModel"
+        minlength="3"
+        [ngClass]="
+         passwordmodel.invalid &&
+          (passwordmodel.dirty || passwordmodel.untouched)
+            ? 'is-invalid '
+            : ''
+        "
+      />
+      <div
+        *ngIf="passwordmodel.invalid"
+        class="invalid-feedback"
+      >
+        passowrd must be 3 characters
+      </div>
+      
+      <input type="submit" value="Register" class="input submit" routerLink=""/>
+      <p class="signup">Already have an account ? <a routerLink="">SignIn</a></p>
+    </form>
+  </div>
+</div> -->
+<div class="login-box">
+  <p>Register</p>
+  <div class="alert alert danger " style="background-color: red;"   *ngIf="error">
+    <p style="color:white;">{{error}}</p>
+  </div>
+  <form #loginform="ngForm">
+    <div class="user-box">
+      <input required="" name="" type="email"   [(ngModel)]="username"
+      #emailmodel="ngModel"
+      [ngModelOptions]="{ standalone: true }"
+      [ngClass]="
+        emailmodel.invalid &&
+        (emailmodel.dirty || emailmodel.touched)
+          ? 'is-invalid '
+          : ''
+      "
+    />
+    <div
+      *ngIf="emailmodel.invalid"
+      class="invalid-feedback"
+    >
+      email must be 6 characters
+    </div>
+      <label>Email</label>
+    </div>
+    <div class="user-box">
+      <input required="" name="" type="password"   [(ngModel)]="password"
+      minlength="3"
+      #passwordmodel="ngModel"
+      minlength="3"
+      [ngModelOptions]="{ standalone: true }"
+      [ngClass]="
+        passwordmodel.invalid &&
+        (passwordmodel.dirty || passwordmodel.touched)
+          ? 'is-invalid '
+          : ''
+      "
+    />
+    <div
+      *ngIf="passwordmodel.invalid"
+      class="invalid-feedback"
+    >
+     passowrd atleast 3 characters
+    </div>
+
+      <label>Password</label>
+    </div>
+    <div class="user-box">
+      <input required="" name="" type="text" [(ngModel)]="name"
+      [ngModelOptions]="{ standalone: true }"
+      #namemodel="ngModel"
+      maxlength="16"
+      minlength="8"
+      
+      [ngClass]="
+        namemodel.invalid &&
+        (namemodel.dirty || namemodel.untouched)
+          ? 'is-invalid '
+          : ''
+      "
+    />
+    <div
+      *ngIf="namemodel.invalid"
+      class="invalid-feedback"
+    >
+      name must be 6 characters
+    </div>>
+      <label>Name</label>
+    </div>
+    <a href="#" type="submit" (click)="register(loginform)">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Register
+    </a>
+  </form>
+  <p>Don't have an account? <a routerLink="" class="a2">Sign In</a></p>
+</div>

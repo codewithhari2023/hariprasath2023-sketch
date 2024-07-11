@@ -1,0 +1,32 @@
+====================================================================================================================
+
+Derive Environment START
+
+Current Working Directory is C:\Hariprasath-Python
+
+Environment is DEV
+
+Derive Environment END
+
+Importing moconfig file from batch directory - START
+
+Batch directory path inserted
+
+Importing moconfig file from batch directory - END
+
+ON INITIAL RUN EXECUTE THE DDL SCRIPT: 1047_DDL.ksh on 2024-07-09 12:54:14.285549
+Created stored procedure at 2024-07-09 12:54:14.285549
+Stored procedure completed successfully at 2024-07-09 12:54:14.285549
+Created stored procedure at 2024-07-09 12:54:14.285549
+Stored procedure completed successfully at 2024-07-09 12:54:14.285549
+1.1 Get CIBC_FUND.csv tables(for future use - change driver 1301-1404 by table driven) on 2024-07-09 12:54:14.285549
+Copying file protagonist.csv from the $sftp_in dir on 2024-07-09 12:54:14.285549
+1.2 Create CIBCDEV..CIBC_FUND 2024-07-09 12:54:14.285549
+The CREATE TABLE CIBC_FUND run successfully on 2024-07-09 12:54:14.285549
+BCP CIBC_FUND table in on 2024-07-09 12:54:14.285549
+bcp CIBC_FUND worked
+2. RUN SP af_R0252_MF/af_R0252_EQ/af_R0252_MF_trailer 2024-07-09 12:54:14.285549
+The SQL executed successfully on 2024-07-09 12:54:14.285549
+Checking LOG file for errors on 2024-07-09 12:54:14.285549
+BCP R0252_RS_MF table in on 2024-07-09 12:54:14.301127
+Error 103a BCP R0252_RS_MF Failed

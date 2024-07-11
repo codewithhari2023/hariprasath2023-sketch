@@ -1,0 +1,46 @@
+.custom-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    padding: 15px;
+    vertical-align: middle;
+  }
+  
+  .custom-table th {
+    background-color: #007bff; /* Blue background for header */
+    color: #ffffff; /* White text for header */
+    border: 1px solid #0056b3; /* Border color for header */
+  }
+  
+  .custom-table tbody tr:nth-child(odd) {
+    background-color: #e7f1fb; /* Light blue background for odd rows */
+  }
+  
+  .custom-table tbody tr:hover {
+    background-color: #c6e2ff; /* Light blue background on hover */
+    transition: background-color 0.3s;
+  }
+  
+  /* Style buttons and icons */
+  .btn-info,
+  .btn-danger {
+    background-color: #ff0d00 !important; /* Blue background for buttons */
+    border-color: #007bff !important; /* Border color for buttons */
+  }
+  
+  .btn-info i,
+  .btn-danger i {
+    color: #ffffff; /* White color for icons inside buttons */
+  }
+  
+  /* Adjust button width */
+  .btn-info.w-50,
+  .btn-danger.w-50 {
+    width: 50%;
+  }
+  

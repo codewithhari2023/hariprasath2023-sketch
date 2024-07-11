@@ -1,0 +1,69 @@
+<!-- <div class="container mt-5">
+  <table class="table table-bordered text-center">
+    <thead class="thead-dark">
+      <tr class="table-primary">
+        <th>ID</th>
+        <th>Book Name</th>
+        <th>Quantity</th>
+        <th>price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let cart of carts">
+      <tr>
+        <td>{{ cart.id }}</td>
+        <td>{{ cart.book.title }}</td>
+        <td>{{cart.count}}</td>
+
+        <td>₹ {{ cart.book.price }}</td>
+        <td>
+          <button class="btn btn-danger text-white w-25 btn-primary">
+            <i
+              class="fas fa-trash-alt text-sucess"
+              (click)="Deletecart(cart.id,cart.book.id)"
+            ></i>
+        
+          </button>
+        </td>
+        
+      </tr>
+      
+    </tbody>
+    
+  </table>
+  <div>
+    <button class="btn btn-primary"(click)="checkout()">Check Out</button>
+  </div>
+</div> -->
+<header>
+  <h1>Shopping Cart</h1>
+</header>
+
+<div class="cart-container">
+  <table>
+    <thead>
+      <tr>
+        <th>S.no</th>
+        <th>Product</th>
+        <th>price</th>
+        <th>Quantity</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cart of carts">
+        <td class="item-image">{{cart.id}}</td>
+        <td class="item-title">{{cart.book.title}}</td>
+        <td class="item-price">{{cart.book.price}}</td>
+        <td><input type="number" value="1" min="1" class="quantity-input"></td>
+      
+        <td><button class="remove-button" (click)="Deletecart(cart.id,cart.book.id)">Remove</button></td>
+      </tr>
+      
+      <!-- A dd more rows for additional cart items -->
+
+    </tbody>
+  </table>
+
+  <button class="checkout-button" (click)="checkout()">Proceed to Checkout</button>
+</div>

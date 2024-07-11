@@ -1,0 +1,61 @@
+ /* .form-control{
+    margin-left: 10px;
+    border-radius: 19px;
+    border-right: 100px;
+}
+.nav-item{
+    margin-right: 125px;
+    margin-left: 50px;
+}  */
+/* .navbar-brand{
+    margin-left: -100px;
+} */
+@media (min-width: 1200px) {
+    .navbar-brand {
+        margin-right: 10rem; /* Extra large margin for large desktops */
+    }
+    .nav-link{
+        margin-right: 6rem;
+    }
+    .nav-item{
+        margin-right: -2rem;
+    }
+   
+}
+.form-control{
+    margin-right: -10px;
+    border-radius: 19px;
+    border-right: 10px;
+}
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .min-vh-100 {
+    min-height: 100vh;
+  }
+  
+  .flex-grow-1 {
+    flex-grow: 1;
+  }
+  
+  .loader {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    height: 100vh;           /* Full viewport height to center vertically */
+    width: 100vw;            /* Full viewport width to center horizontally */
+    position: fixed;         /* Ensure it covers the entire screen */
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a background color with opacity */
+    z-index: 9999;           /* Ensure it appears above other content */
+  }
+  

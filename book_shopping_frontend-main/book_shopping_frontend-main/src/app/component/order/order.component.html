@@ -1,0 +1,18 @@
+
+<table class="table custom-table">
+  <thead class="thead-custom">
+    <tr>
+      <th scope="col">User name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Status</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let userOrder of userOrder">
+      <td>{{userOrder.username}}</td>
+      <td>{{userOrder.address?.address}}, {{userOrder.address?.city}}-{{userOrder.address?.zipcode}}</td>
+      <td>{{userOrder.orderStatus}}</td>
+    </tr>
+  </tbody>
+

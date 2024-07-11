@@ -1,0 +1,29 @@
+.table-container {
+  margin-top: 60px; /* Adjust based on navbar height */
+  padding: 20px;
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+  max-height: calc(100vh - 60px); /* Adjust based on navbar height */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid blue;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color:b;
+}
+
+tbody tr:nth-child(even) {
+  background-color: black;
+}
+
+tbody tr:hover {
+  background-color: black;
+}

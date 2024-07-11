@@ -1,0 +1,44 @@
+<!-- 
+<p class="  fs-4 mx-3">BOOK LIST</p>
+<div class="d-flex">
+  <div class="card mt-3 mx-2" style="width: 18rem" *ngFor="let book of Books">
+    <img src="..." class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title text-center">{{ book.title }}</h5>
+      <p class="card-text text-center">{{ book.description }}</p>
+      <p class="card-text text-center">{{ book.author }}</p>
+      <p class="card-text fs-2 mx-1">₹{{ book.price }}</p>
+    </div>
+    <button type="submit" (click)="AddtoCart(book)">addToCart</button>
+  </div>
+</div> -->
+<!-- The Code -->
+<header class="main-heading">BOOKS</header>
+
+<div class="home d-flex md-5">
+  <div id="large-th">
+
+    <div id="list-th">
+      <div class="book read" *ngFor="let book of Books">
+        <div class="cover " >
+          <img
+            src="{{
+              'http://localhost:8080/api/admin/book/downloadFile/' + book.id}}"
+          />
+        </div>
+        <div class="description">
+          <p class="title">
+            {{ book.title }}<br />
+            <span class="author">{{ book.author }}</span>
+          </p>ng
+          <span class="author">{{ book.description }}</span>
+          <button class="add-to-cart" (click)="AddtoCart(book)">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+

@@ -1,0 +1,18 @@
+
+<div class="form-container" style="margin-top: 60px;"> <!-- Adjust margin-top based on navbar height -->
+  <form id="leaveForm" action="submit-leave.php" method="POST">
+      <label for="employeeName">Employee Name:</label>
+      <input type="text" id="employeeName" name="employeeName" required><br><br>
+      
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" name="startDate" required><br><br>
+
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate" name="endDate" required><br><br>
+
+      <label for="reason">Reason:</label><br>
+      <textarea id="reason" name="reason" rows="5" cols="50" required></textarea><br><br>
+
+      <button type="submit">Submit Leave Request</button>
+  </form>
+</div>

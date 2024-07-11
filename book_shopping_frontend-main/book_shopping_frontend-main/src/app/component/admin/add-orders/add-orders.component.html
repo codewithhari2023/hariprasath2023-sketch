@@ -1,0 +1,76 @@
+<table class="table custom-table">
+  <thead class="thead-custom">
+    <tr>
+      <th scope="col">Order ID</th>
+      <th scope="col">User ID</th>
+      <th scope="col">Address</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let orderdetail of OrderDetails">
+      <td>{{orderdetail.id}}</td>
+      <td>{{orderdetail.userId}}</td>
+      <td>{{orderdetail.address?.address}}, {{orderdetail.address?.city}}</td>
+      <td >
+        <select (click)="getOrderstatus();updateOrder(orderdetail)"><option value="" selected disabled >select orderStatus</option>
+        <option value="{{orderStatus.status}}" *ngFor="let orderStatus of orderstatuses">{{orderStatus. status}}</option></select></td>
+    </tr>
+  </tbody>
+</table>
+<!-- 
+<div class="mb-3" *ngFor="let orderdetail of OrderDetails" >
+  <label class="col-form-label">OrderID</label>
+  <input
+    type="text"
+    class="form-control"
+    name="title"
+    [(ngModel)]="orderId"
+    required
+    minlength="3"
+    #titleModel="ngModel"
+    [ngClass]="
+      titleModel.invalid && (titleModel.dirty || titleModel.touched)
+        ? 'is-invalid'
+        : ''
+    "
+  />
+  <label class="col-form-label">Description </label>
+  <input
+    type="text"
+    class="form-control"
+    name="title"
+    [(ngModel)]="statusId"
+    required
+    minlength="3"
+    #descritpionModel="ngModel"
+    [ngClass]="
+      descritpionModel.invalid &&
+      (descritpionModel.dirty || descritpionModel.touched)
+        ? 'is-invalid'
+        : ''
+    "
+  />
+  <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal"  (click)="updateOrder(orderdetail)">
+    Close
+  </button>
+
+</div>
+
+  <button class="btn-primary"(click)="getOrderstatus()">status</button>
+  <table class="table custom-table">
+    <thead class="thead-custom">
+      <tr>
+    
+        <th scope="col">Order Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let orderStatus of orderstatuses">
+       <td>{{orderStatus. status}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+ -->

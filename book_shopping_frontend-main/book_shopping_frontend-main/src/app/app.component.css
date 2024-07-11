@@ -1,0 +1,88 @@
+
+.cart-icon {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+    padding-left: 1300px;
+}
+
+.cart-icon i {
+    font-size: 2em;
+    color:white;
+    
+}
+
+.cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 0.2em 0.5em;
+    border-radius: 50%;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.order-icon {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.order-icon i {
+    font-size: 2em;
+    color: #333;
+}
+
+.order-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: green;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 0.2em 0.5em;
+    border-radius: 50%;
+}
+
+.sidebar {
+    background-color: #f8f9fa; /* Light gray background color */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  }
+  
+  .sidebar ul {
+    list-style: none; /* Remove list bullets */
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar i {
+    font-size: 1.2rem;
+    margin-right: 8px;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #495057; /* Dark gray text color */
+    font-weight: 500;
+  }
+  
+  .sidebar a:hover {
+    color: #007bff; /* Change text color on hover */
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
+  

@@ -1,0 +1,272 @@
+<!-- 
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="categoryId">Category ID:</label>
+    <input type="number" id="categoryId" formControlName="categoryId" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" id="title" formControlName="title" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description" class="form-control"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <input type="number" id="price" formControlName="price" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="author">Author:</label>
+    <input type="text" id="author" formControlName="author" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="photo">Photo:</label>
+    <input type="file" id="photo" (change)="onFileChange($event)" class="form-control-file">
+  </div>
+  <button type="submit" class="btn btn-primary">Upload Book</button>
+</form> -->
+
+<!-- <div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <form>
+          <div class="form-group">
+            <label for="username">Category:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              required
+              [(ngModel)]="title"
+              #emailmodel="ngModel"
+              [ngClass]="
+                emailmodel.invalid && 
+                (emailmodel.dirty || emailmodel.untouched)
+                  ? 'is-invalid '
+                  : ''
+              "
+            />
+            <div
+              *ngIf="emailmodel.invalid"
+              class="invalid-feedback"
+            >
+              
+            </div>
+            <button class="btn btn-danger" (click)="AddCategory(title)"> Add</button>
+          </div>
+        </form>
+      </div>
+      
+     
+      <div class="col-md-4">
+        <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+          <label>
+            Category ID:
+            <input type="number" formControlName="categoryId" required>
+          </label>
+         ther form inputs... -->
+
+          <!-- <button type="submit" [disabled]="bookForm.invalid">Add Book</button>
+          <button (click)="onSubmit()">Submit</button>
+          <button (click)="exportToExcel()">Export to Excel</button>
+        </form>
+      </div> -->
+      
+      <!-- Third column for Book table -->
+      <div class="col-md-6 p-2">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover" style="margin-top: 100px;">
+            <thead class="thead-dark">
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let b of book">
+              <tr>
+                <td>{{ b.title }}</td>
+                <td>{{ b.author }}</td>
+                <td>{{ b.price }}</td>
+                <td>{{ b.description }}</td>
+                <td>
+                  <button type="button" class="btn btn-danger" (click)="DeleteBook(b.id)">Delete</button>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleupdateModal" data-whatever="@mdo">Update</button>
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button" >CreateCategory</a>
+<!-- Button trigger modal -->
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel">Category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="username">Category:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              required
+              [(ngModel)]="title"
+              #emailmodel="ngModel"
+              [ngClass]="
+                emailmodel.invalid && 
+                (emailmodel.dirty || emailmodel.untouched)
+                  ? 'is-invalid '
+                  : ''
+              "
+            />
+            <div
+              *ngIf="emailmodel.invalid"
+              class="invalid-feedback"
+            >
+              
+            </div>
+            <button class="btn btn-danger" (click)="AddCategory(title)"> Add</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">CreateBook</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">  
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel2">Book</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="categoryId">Category ID:</label>
+            <input type="number" id="categoryId" formControlName="categoryId" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" formControlName="title" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" formControlName="description" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" id="price" formControlName="price" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="author">Author:</label>
+            <input type="text" id="author"  class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="photo">Photo:</label>
+            <input type="file" id="photo" (change)="onFileChange($event)" class="form-control-file">
+          </div>
+          <button type="submit" class="btn btn-primary">Upload Book</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Trigger button to open the modal -->
+
+<!-- Bootstrap modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngFor="let b of book">
+        <form [formGroup]="bookForm" (ngSubmit)="onSubmitted(b.id)">
+          <div class="form-group">
+            <label for="categoryId">Category ID:</label>
+            <input type="number" id="categoryId" formControlName="categoryId" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" formControlName="title" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" formControlName="description" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" id="price" formControlName="price" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="author">Author:</label>
+            <input type="text" id="author"  class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="photo">Photo:</label>
+            <input type="file" id="photo" (change)="onFileChange($event)" class="form-control-file">
+          </div>
+          <button type="submit" class="btn btn-primary">Upload Book</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleupdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+

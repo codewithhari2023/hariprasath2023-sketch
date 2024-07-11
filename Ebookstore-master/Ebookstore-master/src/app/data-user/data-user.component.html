@@ -1,0 +1,28 @@
+<h1 style="margin-top: 100px;">WELCOME DATAUSER</h1>
+<div class="content">
+    <div class="table-container" >
+        <h2>UserOrders</h2>
+      <table>
+          <thead>
+              <tr>
+                  <th>username</th>
+                  <th>Address</th>
+                  <th>zipcode</th>
+                  <th>Status</th>
+               
+                 
+              </tr>
+          </thead>
+          <tbody *ngFor="let o of Orders">
+              <td>{{o.username}}</td>
+              <td>{{o.deliveryaddress?.street}}</td>
+              <td>{{o.deliveryaddress?.zipcode}}</td>
+              <td>{{o.orderStatus}}</td>
+            
+          
+             
+             
+          </tbody>
+      </table>
+  </div>
+  </div>

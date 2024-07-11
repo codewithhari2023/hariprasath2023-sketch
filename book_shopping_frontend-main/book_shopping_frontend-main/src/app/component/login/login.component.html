@@ -1,0 +1,93 @@
+<div class="login">
+<section class="vh-100 glass-morphism">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-6">
+        <ng-lottie [options]="options"></ng-lottie>
+      </div>
+      <div class="col-6">
+        <h1 class="display-4 text-primary fw-bold">Login</h1>
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+          <!-- Username input -->
+          <div class="form-outline mb-3">
+            <label class="form-label" for="username">Username</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              name="name"
+              ngModel
+              required
+              minlength="3"
+              maxlength="15"
+              #Namevalid="ngModel"
+              [(ngModel)]="username"
+              [ngClass]="
+                Namevalid.invalid && (Namevalid.dirty || Namevalid.touched)
+                  ? 'is-invalid '
+                  : ''
+              "
+            />
+            <div *ngIf="Namevalid.invalid" class="invalid-feedback fw-bold">
+              Username characters > 3
+            </div>
+          </div>
+ 
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <label class="form-label" for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              name="password"
+              ngModel
+              [(ngModel)]="password"
+              required
+              minlength="3"
+              maxlength="10"
+              #passwordvalid="ngModel"
+              [ngClass]="
+                passwordvalid.invalid &&
+                (passwordvalid.dirty || passwordvalid.touched)
+                  ? 'is-invalid'
+                  : ''
+              "
+            />
+            <div *ngIf="passwordvalid.invalid" class="invalid-feedback fw-bold">
+              Password characters > 3
+            </div>
+          </div>
+ 
+          <div class="text-align">
+            <span>Not registered?</span>
+            <a
+              routerLink="/register"
+              class="text-primary text-decoration-none px-2"
+              >Register here</a
+            >
+          </div>
+ 
+          <!-- Submit button -->
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+          </div>
+        </form>
+
+              <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                <a href="#!" class="text-white"
+                  ><i class="fab fa-facebook-f fa-lg"></i
+                ></a>
+                <a href="#!" class="text-white"
+                  ><i class="fab fa-twitter fa-lg mx-4 px-2"></i
+                ></a>
+                <a href="#!" class="text-white"
+                  ><i class="fab fa-google fa-lg"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+</section>
+</div>

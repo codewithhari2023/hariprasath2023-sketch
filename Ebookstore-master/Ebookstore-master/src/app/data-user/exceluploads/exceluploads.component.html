@@ -1,0 +1,14 @@
+<!-- app.component.html -->
+<div class="container" style="margin-top: 100px;">
+    <h2>Upload Excel File</h2>
+    <form (submit)="onSubmit()">
+      <div>
+        <input type="file" (change)="onFileChange($event)" accept=".xlsx, .xls" style="width: 300px;" />
+      </div>
+      <button type="submit"  style="width: 100px;">Upload</button>
+    </form>
+    
+    <h2>Export Data to Excel</h2>
+    <button class="btn btn-success" (click)="exportToExcel()">Export to Excel</button>
+  </div>
+  

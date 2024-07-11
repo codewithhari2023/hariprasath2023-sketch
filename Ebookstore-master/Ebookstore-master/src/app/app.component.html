@@ -1,0 +1,241 @@
+<!-- <app-login></app-login> -->
+
+<!-- Navbar for logged-in users who are not admins -->
+<div class="container-fluid">
+
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top" *ngIf="!isAdmin&&!isDatauser&&isUser&&!isDataAdmin&&isLoggedIn" style="background-color:rgb(113 113 122);">
+  
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">ELIB</a>
+
+    <!-- Toggle button -->
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left links -->
+      <ul class="navbar-nav me-3">
+        <!-- Home link -->
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" aria-current="page" routerLink="/home">
+            <i class="fas fa-bars pe-2"></i>Home
+          </a>
+        </li>
+
+        <!-- Cart link -->
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" aria-current="page" routerLink="/cart">
+            <i></i>Cart
+          </a>
+        </li>
+ 
+
+      <!-- Search form -->
+      <form class="d-flex align-items-center w-100 form-search">
+        <div class="input-group" style="width: 350px;">
+          <input type="search" class="form-control" placeholder="Search" aria-label="Search"/>
+        </div>
+        <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
+      </form>
+
+      <!-- Right links -->
+    
+        <!-- Profile link -->
+        <li class="nav-item ">
+          <a class="nav-link active d-flex align-items-center" routerLink="/profile">Profile</a>
+        </li>
+
+        <!-- History link -->
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" routerLink="/historybooks">
+            <i class="fas fa-history pe-2"></i> History
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" routerLink="/chat">
+            <i class="fas fa-history pe-2"></i>Chat
+          </a>
+        </li>
+
+        <!-- Sign out link -->
+        <li class="nav-item" style="width: 65px;">
+          <a class="nav-link active d-flex align-items-center" (click)="logout()">SignOut</a>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+</div>
+
+
+<!-- Navbar for logged-in users who are admins -->
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top" *ngIf="isAdmin&&!isUser&&!isDatauser&&!isDataAdmin&&isLoggedIn" style="background-color: rgb(113 113 122);">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/admin">ELIB</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-3">
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" routerLink="/role">
+            <i class="fas fa-history pe-2"></i> MakeRole
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" routerLink="/exceluploads">
+            <i class="fas fa-history pe-2"></i> ExcelUpload
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" routerLink="/mail">
+            <i class="fas fa-history pe-2"></i> MailTrigger
+          </a>
+        </li>
+        <li class="nav-item" style="width: 65px;">
+          <a class="nav-link active d-flex align-items-center" (click)="logout()">SignOut</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Sidebar for admin with user role dataUser -->
+
+
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top" *ngIf="!isAdmin&&!isUser &&isDatauser&&!isDataAdmin&&isLoggedIn" style="background-color: rgb(113 113 122);">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand" routerLink="/DataUser">ELIB</a>
+
+    <!-- Toggle button -->
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left links -->
+     
+
+      <!-- Search form -->
+      <!-- <form class="d-flex align-items-center w-100 form-search">
+        <div class="input-group">
+          <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
+        </div>
+        <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
+      </form> -->
+
+      <!-- Right links -->
+      <ul class="navbar-nav ms-3">
+        <!-- MakeRole link -->
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center"routerLink="/updatebook">
+            <i class="fas fa-history pe-2"></i> updatebookDetail
+          </a>
+        </li>
+        <!-- ExcelUpload link -->
+       
+       
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" routerLink="/notify">
+            <i class="fas fa-history pe-2"></i> notify
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" routerLink="/issue">
+            <i class="fas fa-history pe-2"></i> IssueBook
+          </a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" routerLink="/leave">
+            <i class="fas fa-history pe-2"></i> leaveRequest
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" routerLink="/exceluploads">
+            <i class="fas fa-history pe-2"></i> Upload
+          </a>
+        </li>
+        
+        <!-- MailTrigger link -->
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" routerLink="/mail">
+            <i class="fas fa-history pe-2"></i> MailTrigger
+          </a>
+        </li>
+        <li class="nav-item" style="width: 65px;">
+          <a class="nav-link active d-flex align-items-center" (click)="logout()">SignOut</a>
+        </li>
+
+        <!-- Sign out link -->
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" *ngIf="!isAdmin&&!isUser &&!isDatauser&&isDataAdmin&&isLoggedIn">
+
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand" routerLink="/dataAdmin">ELIB</a>
+
+    <!-- Toggle button -->
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left links -->
+  
+      <!-- Search form -->
+
+      <!-- Right links -->
+      <ul class="navbar-nav ms-3">
+        <!-- MakeRole link -->
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center  a" routerLink="/book-details">
+            <i class="fas fa-history pe-2 "></i> book-details
+          </a>
+        </li>
+        <!-- ExcelUpload link -->
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center " routerLink="/Excel">
+            <i class="fas fa-history pe-2"></i> ExcelUpload
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center " routerLink="/user-detail">
+            <i class="fas fa-history pe-2"></i> userdetails
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center " routerLink="/leave">
+            <i class="fas fa-history pe-2"></i> leaveRequest
+          </a>
+        </li>
+        <!-- MailTrigger link -->
+
+        <!-- Sign out link -->
+        <li class="nav-item" style="width: 65px;">
+          <a class="nav-link active d-flex align-items-center" (click)="logout()">SignOut</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div *ngIf="loaderService.isLoading | async" class="loader" >
+  <ng-lottie [options]="options" width="400px" height="400px"></ng-lottie>
+</div>
+
+<div *ngIf="isLoggedIn">
+
+</div>
+
+  <router-outlet></router-outlet>

@@ -1,0 +1,106 @@
+<div class="home"> 
+
+<div class="body" >
+    <div class="container-fluid text-center my-5" >
+        <div class="shell" style=" margin-top: 150px;">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-3 mb-4" *ngFor="let b of book">      
+                      <div class="card-deck" style="height: 340px;width: 340px;">
+                          <div class="card" style=" height: 250px;width: 200px; margin-bottom:50px ;">
+                              <img src="{{ 'http://localhost:8080/api/admin/book/downloadFile/' + b.id }}" alt="Product" height="230px" width="200px"  style="margin-top: -50px;"/>
+                              <!-- Dynamically generate unique modal ID -->
+                              <div [id]="'staticBackdrop_' + b.id" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" [attr.aria-labelledby]="'staticBackdropLabel_' + b.id" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                      <div class="modal-content">
+                                          <div class="modal-header">
+                                              <h5 class="modal-title" [id]="'staticBackdropLabel_' + b.id">Title:{{b.title}}</h5>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body">
+                                              <img src="{{ 'http://localhost:8080/api/admin/book/downloadFile/' + b.id }}" alt="Product" class="img-fluid py-4 " height="200px" width="200px" />
+                                              <h6>Author:{{b.author}}</h6>
+                                              <p>Description:{{b.description}}</p>
+                                              <p>Price:{{b.price}}</p>
+                                              <ngx-barcode6
+                          [bc-format]="'CODE128'" 
+                          [bc-value]="b.title"                    
+                          [bc-display-value]="false">
+                        </ngx-barcode6>
+                                          </div>
+                                          <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="AddtoCart(b)">AddToCart</button>
+                                              <button type="button" class="btn btn-primary" (click)="requestBook(b.id)">Borrow</button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Button trigger modal, passing the dynamic modal ID -->
+                              <div class="justify-content-center">
+                                <button type="button" class="btn  btn-sm" data-bs-toggle="modal" [attr.data-bs-target]="'#staticBackdrop_' + b.id" style="margin-top: 20px; padding: 5px 10px; width: 80px; font-size: 12px; border-radius: 5px;background-color: #4F4F4F;color: whitesmoke;">
+                                    ViewBook
+                                </button>
+                              </div>
+                              
+                              
+                          </div>
+                          <div class="card-body"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+                <a class="page-link" href="#" aria-label="Previous" (click)="setPage(currentPage - 1)">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item" *ngFor="let page of getPageNumbers()" [class.active]="currentPage === page">
+                <a class="page-link" href="#" (click)="setPage(page)">{{ page }}</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages()">
+                <a class="page-link" href="#" aria-label="Next" (click)="setPage(currentPage + 1)">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+      <button class="btn btn-primary" (click)="checkSessionStatus()">Session</button>
+      
+      </div>
+      
+      
+      <footer class="footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <h5>About Us</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+              </div>
+              <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+              </div>
+              <div class="col-md-4">
+                <h5>Newsletter</h5>
+                <form class="newsletter">
+                  <input type="email" placeholder="Your email address">
+                  <button type="submit">Subscribe</button>
+                </form>
+              </div>
+            </div>
+            <hr>
+            <p >&copy; 2024 Your Company. All rights reserved.</p>
+          
+          </div>
+        </footer>
+      
+</div>
+</div>
